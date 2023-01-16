@@ -1,4 +1,4 @@
-import { mongodbPassword } from "../passwords.js";
+import { mongodbPassword } from "../../passwords.js";
 import mongoose from "mongoose"
 
 
