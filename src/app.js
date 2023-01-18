@@ -17,6 +17,8 @@ app.use(express.json());//habilita interpretador de json
 
 routes(app)//chama o arquivo de rotas
 
+
+export default app
 // app.get('/livros',(req,resp)=>{
 //     livros.find((err,livros)=>{//busca livros no mongoose
 //         resp.status(200).json(livros)
@@ -41,10 +43,10 @@ routes(app)//chama o arquivo de rotas
 // })
 
 
-app.get('/livros/:id',(req,resp)=>{
-    let index = buscaLivro(req.params.id);
-    resp.json(livros[index]);
-})
+// app.get('/livros/:id',(req,resp)=>{
+//     let index = buscaLivro(req.params.id);
+//     resp.json(livros[index]);
+// })
 
 // //adicionar livros
 // app.post('/livros',(req,resp)=>{
@@ -52,26 +54,24 @@ app.get('/livros/:id',(req,resp)=>{
 //     resp.status(201).send('adicionado com sucesso')
 // })
 
-app.put('/livros/:id',(req,resp)=>{
-    let index = buscaLivro(req.params.id);
-    livros[index].titulo =req.body.titulo;
+// app.put('/livros/:id',(req,resp)=>{
+//     let index = buscaLivro(req.params.id);
+//     livros[index].titulo =req.body.titulo;
     
-    resp.json(livros);
-})
+//     resp.json(livros);
+// })
 
-app.delete('/livros/:id',(req,resp)=>{
-    let {id}= req.params //desiturturacao eh igual req.params.id
-    let index = buscaLivro(id);
-    livros.splice(index,1);
+// app.delete('/livros/:id',(req,resp)=>{
+//     let {id}= req.params //desiturturacao eh igual req.params.id
+//     let index = buscaLivro(id);
+//     livros.splice(index,1);
     
-    resp.send(`Livro ${id} removido com sucesso`);
-})
+//     resp.send(`Livro ${id} removido com sucesso`);
+// })
 
 
-function buscaLivro(id){
-    return livros.findIndex(livro =>livro.id == id)
-}
+// function buscaLivro(id){
+//     return livros.findIndex(livro =>livro.id == id)
+// }
 
 //exportar para o server e escutar
-
-export default app

@@ -5,6 +5,7 @@ const router =express.Router();
 
 router
     .get("/livros",LivroController.listarLivros)
+    .get("/livros/busca",LivroController.listarLivroPorEditora)//Tem que colocar antes do id// exemplo de busca http://localhost:3001/livros/busca?editora=abril
     .get("/livros/:id",LivroController.listarLivroId)
     .post("/livros",LivroController.cadastrarLivro)
     .put("/livros/:id",LivroController.atualizarLivro)
